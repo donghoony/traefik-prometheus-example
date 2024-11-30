@@ -1,0 +1,30 @@
+management:
+  server:
+    port: 5959
+
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health, metrics, prometheus
+    access:
+      default: none
+
+  endpoint:
+    health:
+      show-details: always
+      access: read_only
+    metrics:
+      access: read_only
+    prometheus:
+      access: read_only
+
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
+
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
